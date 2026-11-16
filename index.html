@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dev Tools — herramientas para programar</title>
+<meta name="description" content="Herramientas para el día a día en desarrollo de software que se ejecutan en tu navegador: sin servidor, sin cookies y con el código a la vista.">
+<link rel="canonical" href="https://arquitechthor.github.io/dev-tools/">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <img class="nav-logo" src="assets/logo.svg" alt="" width="32" height="32">
+      Dev Tools
+    </a>
+    <div class="nav-links">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <div class="nav-menu">
+        <button class="nav-menu-btn" type="button" aria-expanded="false">Herramientas</button>
+        <div class="nav-submenu">
+          <a href="json-formatter.html">JSON formatter</a>
+        </div>
+      </div>
+      <a href="https://arquitechthor.github.io/">Arquitechthor</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+  </div>
+</nav>
+
+<main id="contenido" tabindex="-1">
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Dev Tools</span>
+    <h1>Herramientas para el <span class="gradient-text">día a día</span> programando</h1>
+    <p class="hero-desc">Pequeñas utilidades para desarrollo de software. Sí, ya existen por allí cosas parecidas,
+      pero no me fío de ellas: aquí todo se ejecuta en tu navegador, sin servidor, sin cookies y con el código a la vista.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="json-formatter.html">Abrir el JSON formatter</a>
+      <a class="btn btn-secondary" href="https://github.com/arquitechthor/dev-tools">Ver el código</a>
+    </div>
+  </div>
+</section>
+
+<section id="herramientas">
+  <div class="container">
+    <div class="section-head">
+      <h2>Herramientas</h2>
+      <p>Una página por herramienta. Irán llegando más.</p>
+    </div>
+    <div class="grid herramientas">
+      <a class="herr-tarjeta" href="json-formatter.html">
+        <svg class="herr-icono" viewBox="0 0 32 32" aria-hidden="true"><path d="M12 5c-3 0-4 1.5-4 4v3c0 2-1 3-3 4 2 1 3 2 3 4v3c0 2.5 1 4 4 4"/><path d="M20 5c3 0 4 1.5 4 4v3c0 2 1 3 3 4-2 1-3 2-3 4v3c0 2.5-1 4-4 4"/><path d="M13 16h6"/></svg>
+        <h3>JSON formatter</h3>
+        <p>Pega un JSON y te lo devuelve sangrado, coloreado y validado, con errores en español que dicen
+          la línea, la columna y qué falta.</p>
+        <span class="etiquetas"><span>Formatear</span><span>Minificar</span><span>Validar</span><span>Ordenar claves</span></span>
+      </a>
+      <div class="herr-tarjeta proxima" aria-hidden="true">
+        <p>Próximamente, más herramientas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="por-que">
+  <div class="container">
+    <div class="section-head">
+      <h2>Por qué fiarse de estas</h2>
+      <p>Lo que pegas aquí puede ser una respuesta de producción, un token o datos de clientes. Por eso:</p>
+    </div>
+    <div class="grid puntos">
+      <div class="punto"><h3>Nada sale de tu navegador</h3><p>No hay servidor ni llamadas de red: el texto se procesa en la propia página. Puedes comprobarlo en la pestaña Red de las herramientas de desarrollo.</p></div>
+      <div class="punto"><h3>Sin cookies ni analítica</h3><p>Ni seguimiento, ni publicidad, ni librerías de terceros, ni CDN. Solo se recuerdan tus preferencias (como la sangría) en tu propio navegador.</p></div>
+      <div class="punto"><h3>Código abierto</h3><p>HTML, CSS y JavaScript sin compilar ni minificar, bajo licencia GPL-3.0 en <a href="https://github.com/arquitechthor/dev-tools">GitHub</a>. Lo que lees es lo que se ejecuta.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="nav-logo" src="assets/logo.svg" alt="" width="24" height="24" style="width:24px;height:24px;">
+        © 2026 Héctor Guzmán · Proyecto personal
+      </div>
+      <div class="footer-links">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="https://github.com/arquitechthor/dev-tools">Código fuente</a>
+      </div>
+    </div>
+    <p class="footer-legal">
+      Herramientas personales, gratuitas y sin fines comerciales: sin publicidad, sin cookies y sin
+      seguimiento. Todo se ejecuta en tu navegador y no se envía nada a ningún servidor. Se ofrecen tal
+      cual, sin garantía. Código bajo
+      <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license">GPL-3.0</a>
+      · <a href="aviso-legal.html">Aviso legal y privacidad</a>.
+    </p>
+    <nav class="footer-sitios" aria-label="Webs de Héctor Guzmán">
+      <a href="https://kopitools.link">Kopi Tools</a>
+      <a href="https://arquitechthor.github.io/aws-cert-study/">Apuntes AWS</a>
+      <a href="https://arquitechthor.github.io/arquitechthor-spider/">Tech Spider</a>
+      <a href="https://arquitechthor.github.io/dev-tools/" aria-current="true">Dev Tools</a>
+      <a href="https://arquitechthor.github.io/#kopi-chess">Kopi Chess</a>
+      <a href="https://arquitechthor.github.io/#prompt-quest">Prompt Quest</a>
+      <a href="https://arquitechthor.github.io/">Arquitechthor</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/nav.js" defer></script>
+</body>
+</html>

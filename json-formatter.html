@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON formatter — Dev Tools</title>
+<meta name="description" content="Formatea, minifica y valida JSON en tu navegador, con errores en español y sin redondear números grandes. Nada se envía a ningún servidor.">
+<link rel="canonical" href="https://arquitechthor.github.io/dev-tools/json-formatter.html">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <img class="nav-logo" src="assets/logo.svg" alt="" width="32" height="32">
+      Dev Tools
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <div class="nav-menu">
+        <button class="nav-menu-btn" type="button" aria-expanded="false">Herramientas</button>
+        <div class="nav-submenu">
+          <a href="json-formatter.html" aria-current="page">JSON formatter</a>
+        </div>
+      </div>
+      <a href="https://arquitechthor.github.io/">Arquitechthor</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+  </div>
+</nav>
+
+<main id="contenido" tabindex="-1">
+<section class="herramienta">
+  <div class="container ancho">
+    <header class="herr-cab">
+      <h1>JSON <span class="gradient-text">formatter</span></h1>
+      <p>Pega un JSON y te lo devuelve bonito: sangrado, coloreado y validado. Si no es válido, te dice dónde
+        está el error y qué falta.</p>
+      <p class="privado"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Se procesa en tu navegador: el JSON no se envía a ningún sitio.</p>
+    </header>
+
+    <div class="barra" role="toolbar" aria-label="Opciones del formateo">
+      <div class="grupo">
+        <button class="btn btn-primary btn-sm" type="button" data-accion="formatear" aria-pressed="true">Formatear</button>
+        <button class="btn btn-primary btn-sm" type="button" data-accion="minificar" aria-pressed="false">Minificar</button>
+      </div>
+      <label>Sangría
+        <select id="sangria">
+          <option value="2">2 espacios</option>
+          <option value="4">4 espacios</option>
+          <option value="tab">Tabulador</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="ordenar"> Ordenar claves</label>
+      <div class="grupo derecha">
+        <button class="btn btn-secondary btn-sm" type="button" data-accion="ejemplo">Ejemplo</button>
+        <button class="btn btn-secondary btn-sm" type="button" data-accion="abrir">Abrir archivo</button>
+        <button class="btn btn-secondary btn-sm" type="button" data-accion="limpiar">Limpiar</button>
+        <input type="file" id="archivo" accept=".json,application/json,text/plain" hidden>
+      </div>
+    </div>
+
+    <div class="paneles">
+      <div class="panel">
+        <div class="panel-cab"><label for="entrada">Entrada</label><span class="tam" id="tam-entrada"></span></div>
+        <textarea id="entrada" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="estado"
+          placeholder='Pega aquí tu JSON o arrastra un archivo, p. ej. {"hola": "mundo"}'></textarea>
+      </div>
+      <div class="panel">
+        <div class="panel-cab">
+          <span id="salida-titulo">Resultado</span>
+          <div class="grupo">
+            <button class="btn btn-secondary btn-sm" type="button" data-accion="copiar" disabled>Copiar</button>
+            <button class="btn btn-secondary btn-sm" type="button" data-accion="descargar" disabled>Descargar</button>
+          </div>
+        </div>
+        <div class="json-error" id="error" role="alert" hidden></div>
+        <pre class="codigo vacia" tabindex="0" aria-labelledby="salida-titulo"><code id="salida"></code></pre>
+      </div>
+    </div>
+    <p class="estado" id="estado" role="status" aria-live="polite"></p>
+    <div class="json-avisos" id="avisos" hidden></div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="container">
+    <div class="section-head">
+      <h2>Qué hace distinto</h2>
+      <p>Lee el JSON con un analizador propio en lugar de <code>JSON.parse</code>, y eso permite:</p>
+    </div>
+    <div class="grid puntos">
+      <div class="punto"><h3>Errores que se entienden</h3><p>Línea, columna y una pista concreta: la coma que sobra antes de <code>}</code>, las comillas simples, los comentarios, un <code>True</code> en mayúscula…</p></div>
+      <div class="punto"><h3>Números exactos</h3><p>Cada número sale tal como entró. <code>JSON.parse</code> convertiría el ID <code>9007199254740993</code> en <code>9007199254740992</code>.</p></div>
+      <div class="punto"><h3>Claves repetidas</h3><p>Avisa si un objeto repite una clave, algo que JSON permite pero que casi todos los programas resuelven quedándose en silencio con el último valor.</p></div>
+      <div class="punto"><h3>Atajos</h3><p>Se formatea mientras escribes. <kbd>Ctrl</kbd> + <kbd>Enter</kbd> fuerza el formateo, y puedes arrastrar un archivo <code>.json</code> a la entrada.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="nav-logo" src="assets/logo.svg" alt="" width="24" height="24" style="width:24px;height:24px;">
+        © 2026 Héctor Guzmán · Proyecto personal
+      </div>
+      <div class="footer-links">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="https://github.com/arquitechthor/dev-tools">Código fuente</a>
+      </div>
+    </div>
+    <p class="footer-legal">
+      Herramientas personales, gratuitas y sin fines comerciales: sin publicidad, sin cookies y sin
+      seguimiento. Todo se ejecuta en tu navegador y no se envía nada a ningún servidor. Se ofrecen tal
+      cual, sin garantía. Código bajo
+      <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license">GPL-3.0</a>
+      · <a href="aviso-legal.html">Aviso legal y privacidad</a>.
+    </p>
+    <nav class="footer-sitios" aria-label="Webs de Héctor Guzmán">
+      <a href="https://kopitools.link">Kopi Tools</a>
+      <a href="https://arquitechthor.github.io/aws-cert-study/">Apuntes AWS</a>
+      <a href="https://arquitechthor.github.io/arquitechthor-spider/">Tech Spider</a>
+      <a href="https://arquitechthor.github.io/dev-tools/" aria-current="true">Dev Tools</a>
+      <a href="https://arquitechthor.github.io/#kopi-chess">Kopi Chess</a>
+      <a href="https://arquitechthor.github.io/#prompt-quest">Prompt Quest</a>
+      <a href="https://arquitechthor.github.io/">Arquitechthor</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/nav.js" defer></script>
+<script src="assets/json.js" defer></script>
+<script src="assets/json-formatter.js" defer></script>
+</body>
+</html>
